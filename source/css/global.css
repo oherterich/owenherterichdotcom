@@ -1,0 +1,104 @@
+*,
+*:before,
+*:after {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fff;
+  color: var(--color-black);
+  font-family: 'PT Sans Narrow', Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+button {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+button:focus {
+  outline: 0;
+}
+
+input,
+select {
+  -webkit-appearance: none;
+  border-radius: 0;
+  padding: 0;
+}
+
+input[type=range] {
+  width: 100%;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  background: transparent;
+  border: 0 none;
+}
+
+input[type=range]::-ms-track {
+  -webkit-appearance: none;
+  background: transparent;
+  border: 0 none;
+  color: transparent;
+  cursor: pointer;
+  overflow: visible;
+  width: 100%;
+}
+
+input[type=range]::-ms-fill-lower {
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: 0 none;
+  color: transparent;
+}
+
+input[type=range]::-ms-fill-upper {
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: 0 none;
+  color: transparent;
+}
+
+input[type=range]::-ms-tooltip {
+  display: none;
+}
+
+input[type=range]::-moz-range-track {
+  -webkit-appearance: none;
+  background: transparent;
+  border: 0 none;
+  color: transparent;
+  cursor: pointer;
+  overflow: visible;
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-size: inherit;
+  font-weight: normal;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+}

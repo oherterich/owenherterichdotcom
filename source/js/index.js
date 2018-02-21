@@ -1,0 +1,17 @@
+import 'babel-polyfill';
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { AppContainer } from 'react-hot-loader';
+
+import Routes from 'routes';
+
+// Load CSS
+import 'index.css';
+
+ReactDOM.render(
+  <AppContainer>
+    <Routes />
+  </AppContainer>,
+  document.getElementById('root')
+);

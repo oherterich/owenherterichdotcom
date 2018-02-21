@@ -1,2 +1,3 @@
-# owenherterichdotcom
-Personal website code
+# This is the personal site of Owen Herterich
+
+Nothing to see here. 
