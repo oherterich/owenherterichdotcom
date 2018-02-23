@@ -18,9 +18,8 @@ class Home extends Component {
 
     return (
       <div className={ wrapperClasses }>
-        <a
+        <div
           className={ styles.content }
-          href='mailto:hi@owenherterich.com'
           onMouseEnter={ this.handleMouseEnter }
           onMouseLeave={ this.handleMouseLeave }
         >
@@ -33,7 +32,7 @@ class Home extends Component {
           <h2 className={ styles.info }>
             hi@owenherterich.com
           </h2>
-        </a>
+        </div>
       </div>
     );
   }
