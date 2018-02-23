@@ -3,7 +3,6 @@
 .wrapper {
   align-items: center;
   background-color: var(--color-green);
-  color: var(--color-white);
   display: flex;
   height: 100vh;
   justify-content: center;
@@ -11,12 +10,19 @@
 
   &.inverted {
     background-color: var(--color-white);
-    color: var(--color-green);
+    cursor: url('../../../assets/pizza.png'), auto;
+
+    .content {
+      color: var(--color-green);
+    }
   }
 }
 
 .content {
+  color: var(--color-white);
+  display: block;
   padding: 20px;
+  text-decoration: none;
 
   @media (--viewport-md) {
     padding: 40px;
