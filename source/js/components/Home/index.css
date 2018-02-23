@@ -10,10 +10,10 @@
 
   &.inverted {
     background-color: var(--color-white);
-    cursor: url('../../../assets/pizza.png'), auto;
 
     .content {
       color: var(--color-green);
+      cursor: url('../../../assets/pizza.png'), auto;
     }
   }
 }
