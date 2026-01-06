@@ -1,3 +1,5 @@
+@use "@/styles/colors" as c;
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -8,6 +10,24 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  overscroll-behavior: none;
+}
+
+:root {
+  /* Theme colors - default (green background) */
+  --color-bg: #{c.$green};
+  --color-sphere: #{c.$white};
+  --color-text: #{c.$white};
+
+  /* Transition */
+  --theme-transition: 200ms ease;
+}
+
+:root[data-theme="inverted"] {
+  /* Inverted theme (white background) */
+  --color-bg: #{c.$white};
+  --color-sphere: #{c.$green};
+  --color-text: #{c.$green};
 }
 
 body {

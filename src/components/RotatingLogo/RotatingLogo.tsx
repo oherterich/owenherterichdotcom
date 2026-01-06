@@ -13,6 +13,15 @@ const RotatingLogo = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const rafRef = useRef<number | null>(null);
 
+  const handleThemeToggle = () => {
+    const root = document.documentElement;
+    const currentTheme = root.getAttribute("data-theme");
+    root.setAttribute(
+      "data-theme",
+      currentTheme === "inverted" ? "" : "inverted",
+    );
+  };
+
   useEffect(() => {
     let lastMousePos = { x: 0, y: 0 };
 
@@ -55,11 +64,19 @@ const RotatingLogo = () => {
       const offsetX = lastMousePos.x - centerX;
       const offsetY = lastMousePos.y - centerY;
 
-      // Normalized values for rotation
-      const normalizedX = offsetX / MAX_DISTANCE;
-      const normalizedY = offsetY / MAX_DISTANCE;
+      const distance = Math.sqrt(offsetX ** 2 + offsetY ** 2);
+      const circleSize = containerRef.current?.offsetWidth || 1;
+      const radius = circleSize / 2;
 
-      applyTransforms(normalizedX, normalizedY);
+      if (distance < radius) {
+        applyTransforms(0, 0);
+      } else {
+        // Normalized values for rotation
+        const normalizedX = offsetX / MAX_DISTANCE;
+        const normalizedY = offsetY / MAX_DISTANCE;
+
+        applyTransforms(normalizedX, normalizedY);
+      }
       rafRef.current = null;
     };
 
@@ -83,14 +100,23 @@ const RotatingLogo = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className={styles.container}>
+    <div
+      ref={containerRef}
+      className={styles.container}
+      onClick={handleThemeToggle}
+    >
       <div className={styles.sphere} aria-hidden="true">
         <div className={styles.inner} />
-        <div className={styles.text}>OH</div>
+        <div className={styles.text}>
+          OH
+          <span className={styles.exclamation}>!</span>
+        </div>
       </div>
       <div className={styles.srInfo}>
         <h1>Owen Herterich</h1>
-        <a href="mailto:hi@owenherterich.com">hi@owenherterich.com</a>
+        <a tabIndex={-1} href="mailto:hi@owenherterich.com">
+          hi@owenherterich.com
+        </a>
       </div>
       <TextRing
         text="hi@owenherterich.com ★ hi@owenherterich.com ★ "
