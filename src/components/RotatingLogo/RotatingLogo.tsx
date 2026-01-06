@@ -2,13 +2,14 @@
 
 import { useEffect, useRef } from "react";
 import styles from "./RotatingLogo.module.scss";
+import TextRing from "@/components/TextRing/TextRing";
 
 const MAX_ROTATE_DEG = 30;
 const MAX_DISTANCE = 800;
 const TRANSLATION_FACTOR = 0.05;
 const INNER_LIGHT_FACTOR = 20;
 
-export default function RotatingLogo() {
+const RotatingLogo = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const rafRef = useRef<number | null>(null);
 
@@ -16,6 +17,8 @@ export default function RotatingLogo() {
     let lastMousePos = { x: 0, y: 0 };
 
     const applyTransforms = (normalizedX: number, normalizedY: number) => {
+      if (!containerRef.current) return;
+
       // Rotation (inverted Y for natural feel)
       const rotateX = -normalizedY * MAX_ROTATE_DEG;
       const rotateY = normalizedX * MAX_ROTATE_DEG;
@@ -32,21 +35,16 @@ export default function RotatingLogo() {
       const innerX = normalizedX * INNER_LIGHT_FACTOR;
       const innerY = -normalizedY * INNER_LIGHT_FACTOR;
 
-      // Apply CSS variables
-      document.documentElement.style.setProperty("--rotate-x", `${rotateX}deg`);
-      document.documentElement.style.setProperty("--rotate-y", `${rotateY}deg`);
-      document.documentElement.style.setProperty(
-        "--translate-x",
-        `${translateX}px`,
-      );
-      document.documentElement.style.setProperty(
-        "--translate-y",
-        `${translateY}px`,
-      );
-      document.documentElement.style.setProperty("--ds-x", `${shadowX}px`);
-      document.documentElement.style.setProperty("--ds-y", `${shadowY}px`);
-      document.documentElement.style.setProperty("--inner-x", `${innerX}px`);
-      document.documentElement.style.setProperty("--inner-y", `${-innerY}px`);
+      // Apply CSS variables directly to container element
+      const el = containerRef.current;
+      el.style.setProperty("--rotate-x", `${rotateX}deg`);
+      el.style.setProperty("--rotate-y", `${rotateY}deg`);
+      el.style.setProperty("--translate-x", `${translateX}px`);
+      el.style.setProperty("--translate-y", `${translateY}px`);
+      el.style.setProperty("--ds-x", `${shadowX}px`);
+      el.style.setProperty("--ds-y", `${shadowY}px`);
+      el.style.setProperty("--inner-x", `${innerX}px`);
+      el.style.setProperty("--inner-y", `${-innerY}px`);
     };
 
     const updateFromMouse = () => {
@@ -92,7 +90,16 @@ export default function RotatingLogo() {
       </div>
       <div className={styles.srInfo}>
         <h1>Owen Herterich</h1>
+        <a href="mailto:hi@owenherterich.com">hi@owenherterich.com</a>
       </div>
+      <TextRing
+        text="hi@owenherterich.com ★ hi@owenherterich.com ★ "
+        fontSize={3}
+        characterWidth={2.5}
+        rotateRingDeg={104}
+      />
     </div>
   );
-}
+};
+
+export default RotatingLogo;

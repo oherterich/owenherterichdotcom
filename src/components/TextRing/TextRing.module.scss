@@ -1,0 +1,39 @@
+@use "@/styles/colors" as c;
+
+.textRing {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(calc(var(--rotate-ring-deg) * 1deg));
+  animation: rotateRing 30s linear infinite;
+}
+
+.character {
+  /* In "ch" units */
+  --inner-angle: calc((360 / var(--total)) * 1deg);
+  --radius: calc((var(--character-width, 1) / sin(var(--inner-angle))) * -1ch);
+
+  font-weight: bold;
+  font-family: monospace;
+  text-transform: uppercase;
+  font-size: clamp(0.75rem, calc(var(--font-size, 2) * 1vmin), 1.3rem);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: c.$white;
+  transform: translate(-50%, -50%)
+    rotate(calc(var(--inner-angle) * var(--index)))
+    translateY(var(--radius, -5ch));
+  filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.25));
+}
+
+@keyframes rotateRing {
+  from {
+    transform: translate(-50%, -50%)
+      rotate(calc(var(--rotate-ring-deg, 0) * 1deg));
+  }
+  to {
+    transform: translate(-50%, -50%)
+      rotate(calc(var(--rotate-ring-deg, 0) * 1deg + 360deg));
+  }
+}
