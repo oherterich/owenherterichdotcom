@@ -1,5 +1,5 @@
-import RotatingLogo from '@/components/RotatingLogo/RotatingLogo';
-import styles from './page.module.scss';
+import RotatingLogo from "@/components/RotatingLogo/RotatingLogo";
+import styles from "./page.module.scss";
 
 export default function Home() {
   return (
