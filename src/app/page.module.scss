@@ -5,4 +5,6 @@
   align-items: center;
   justify-content: center;
   background: var(--color-bg);
+  transition: background var(--theme-transition);
+  perspective: 500px;
 }

@@ -4,13 +4,13 @@ import { useEffect, useRef } from "react";
 import styles from "./RotatingLogo.module.scss";
 import TextRing from "@/components/TextRing/TextRing";
 
-const MAX_ROTATE_DEG = 30;
+const MAX_ROTATE_DEG = 15;
 const MAX_DISTANCE = 800;
 const TRANSLATION_FACTOR = 0.05;
 const INNER_LIGHT_FACTOR = 20;
 
 const RotatingLogo = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLButtonElement>(null);
   const rafRef = useRef<number | null>(null);
 
   const handleThemeToggle = () => {
@@ -100,7 +100,7 @@ const RotatingLogo = () => {
   }, []);
 
   return (
-    <div
+    <button
       ref={containerRef}
       className={styles.container}
       onClick={handleThemeToggle}
@@ -120,11 +120,11 @@ const RotatingLogo = () => {
       </div>
       <TextRing
         text="hi@owenherterich.com ★ hi@owenherterich.com ★ "
-        fontSize={3}
-        characterWidth={2.5}
+        fontSize={3.5}
+        characterWidth={2.1}
         rotateRingDeg={104}
       />
-    </div>
+    </button>
   );
 };
 

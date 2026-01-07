@@ -10,23 +10,28 @@
   --ds-y: 0;
   --inner-x: 0;
   --inner-y: 0;
+  --scale: 1;
 }
 
 .container {
-  perspective: 1000px;
-  width: clamp(200px, 60vw, 400px);
-  height: clamp(200px, 60vw, 400px);
+  width: clamp(200px, 60vmin, 400px);
+  height: clamp(200px, 60vmin, 400px);
   list-style: none;
   padding: 0;
   margin: 0;
-  filter: drop-shadow(var(--ds-x) var(--ds-y) 15px rgba(0, 0, 0, 0.15));
+  filter: drop-shadow(var(--ds-x) var(--ds-y) 20px rgba(0, 0, 0, 0.2));
   transition:
-    filter 200ms ease-out,
-    transform 200ms ease-out;
+    filter 100ms ease-out,
+    transform 100ms ease-out;
   transform-style: preserve-3d;
   transform: translate(var(--translate-x), var(--translate-y))
-    rotateX(var(--rotate-x)) rotateY(var(--rotate-y));
+    rotateX(var(--rotate-x)) rotateY(var(--rotate-y)) scale(var(--scale));
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+
+  &:active {
+    --scale: 0.97;
+  }
 }
 
 .sphere {
@@ -49,8 +54,7 @@
   left: 50%;
   transform: translate(-50%, -50%) translateZ(50px);
   line-height: 1;
-  font-size: clamp(80px, 20vw, 128px);
-  font-family: Helvetica, Arial, sans-serif;
+  font-size: clamp(80px, 20vmin, 128px);
   font-weight: 700;
   color: var(--color-bg);
   letter-spacing: -5px;

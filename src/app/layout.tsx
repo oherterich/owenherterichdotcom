@@ -1,4 +1,12 @@
 import type { Metadata } from "next";
+import { Quicksand } from "next/font/google";
+
+const quicksand = Quicksand({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-quicksand",
+});
+
 import "@/styles/globals.scss";
 
 export const metadata: Metadata = {
@@ -15,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={quicksand.variable}>
       <body>{children}</body>
     </html>
   );

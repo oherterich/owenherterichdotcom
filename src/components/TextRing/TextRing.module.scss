@@ -9,14 +9,13 @@
 }
 
 .character {
-  /* In "ch" units */
   --inner-angle: calc((360 / var(--total)) * 1deg);
   --radius: calc((var(--character-width, 1) / sin(var(--inner-angle))) * -1ch);
 
   font-weight: bold;
   font-family: monospace;
   text-transform: uppercase;
-  font-size: clamp(0.75rem, calc(var(--font-size, 2) * 1vmin), 1.3rem);
+  font-size: clamp(0.75rem, calc(var(--font-size, 2) * 1vmin), 1.5rem);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -24,7 +23,7 @@
   transform: translate(-50%, -50%)
     rotate(calc(var(--inner-angle) * var(--index)))
     translateY(var(--radius, -5ch));
-  filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.25));
+  filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.1));
   transition: color var(--theme-transition);
 }
 
