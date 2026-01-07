@@ -14,6 +14,17 @@
 }
 
 .container {
+  width: 100dvw;
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg);
+  transition: background var(--theme-transition);
+  perspective: 500px;
+}
+
+.logo {
   width: clamp(200px, 60vmin, 400px);
   height: clamp(200px, 60vmin, 400px);
   list-style: none;
