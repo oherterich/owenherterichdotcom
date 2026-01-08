@@ -22,7 +22,7 @@ body {
   --color-text: #{c.$white};
 
   /* Transition */
-  --theme-transition: 200ms #{e.$easeOutQuad};
+  --theme-transition: 150ms #{e.$easeOutQuad};
 }
 
 :root[data-theme="inverted"] {

@@ -5,7 +5,10 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%) rotate(calc(var(--rotate-ring-deg) * 1deg));
-  animation: rotateRing 30s linear infinite;
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: rotateRing 30s linear infinite;
+  }
 }
 
 .character {

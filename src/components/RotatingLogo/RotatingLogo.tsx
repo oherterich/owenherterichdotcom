@@ -49,7 +49,7 @@ const RotatingLogo = () => {
         </div>
         <TextRing
           text="hi@owenherterich.com ★ hi@owenherterich.com ★ "
-          fontSize={3.5}
+          fontSize={3.6}
           characterWidth={2.1}
           rotateRingDeg={104}
         />

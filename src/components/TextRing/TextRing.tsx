@@ -22,6 +22,7 @@ const TextRing = ({
 
   return (
     <span
+      aria-hidden="true"
       className={styles.textRing}
       style={
         {
