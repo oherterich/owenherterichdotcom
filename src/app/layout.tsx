@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Quicksand } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const quicksand = Quicksand({
@@ -26,7 +27,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={quicksand.variable}>
       <SpeedInsights />
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
